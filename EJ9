@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int CambiarDictado(string frase) {
+    int contador = 0;
+    int i = 0, f = frase.length() - 1;
+    
+    while (i < f) {
+        if (frase[i] != frase[f]) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+int main() {
+    string palabra;
+    cout<<"Ingrese una palabra: ";
+    cin>>palabra;
+    
+    int letrasFaltantes = CambiarDictado(palabra);
+    cout<<"La cantidad que faltan son: "<<letrasFaltantes<<endl;
+    
+    return 0;
+}
