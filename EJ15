@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string remplazarEspacios(string cadena, char remplazar) {
+    for (int i = 0; i < cadena.length(); i++) {
+        if (cadena[i] == ' ')
+		 {
+            cadena[i] = remplazar;
+        }
+    }
+    return cadena;
+}
+
+int main() {
+    string cadena;
+    char remplazar;
+
+    cout<<"Ingrese una cadena: ";
+    getline(cin, cadena);
+
+    cout<<"Ingrese un carácter para reemplazar los espacios: ";
+    cin>>remplazar;
+
+    string cadenaRemplazada = remplazarEspacios(cadena, remplazar);
+    cout<<"La cadena reemplazando espacios por "<<remplazar<<" es: "<< cadenaRemplazada<<endl;
+
+    return 0;
+}
