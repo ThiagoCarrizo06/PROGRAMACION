@@ -26,4 +26,4 @@ int main() {
     cin>>separador;
     string salida = inserteCadenaYcaracter(cadena, separador, 3);
     cout<<"Cadena resultante: "<<salida<<endl;
-    r
+    return 0;
