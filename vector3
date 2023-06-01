@@ -1,0 +1,89 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+
+using namespace std;
+
+float CalcularPromedio(vector<int> A) {
+    int suma = 0;
+    for (int i = 0; i < A.size(); i++) {
+        suma += A[i];
+    }
+    return static_cast<float>(suma) / A.size();
+}
+
+vector<int> GenerarVectorB(vector<int> A, float promedio) {
+    vector<int> B;
+    for (int i = 0; i < A.size(); i++) {
+        if (A[i] > promedio) {
+            B.push_back(A[i]);
+        }
+    }
+    return B;
+}
+
+int ContarMultiplosDeDosYtres(vector<int> A) {
+    int contador = 0;
+    for (int i = 0; i < A.size(); i++) {
+        if (A[i] % 2 == 0 && A[i] % 3 == 0) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int CalcularSuma(vector<int> A) {
+    int suma = 0;
+    for (int i = 0; i < A.size(); i++) {
+        suma += A[i];
+    }
+    return suma;
+}
+
+vector<int> GenerarVectorC(vector<int> A) {
+    vector<int> C;
+    for (int i = 0; i < A.size(); i++) {
+        C.push_back(A[i] * 2);
+    }
+    return C;
+}
+
+void MostrarVector(vector<int> V) {
+    for (int i = 0; i < V.size(); i++) {
+        cout << V[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int N;
+    cout << "Ingrese la cantidad de elementos del vector: ";
+    cin >> N;
+
+    vector<int> A;
+    for (int i = 0; i < N; i++) {
+        A.push_back(rand() % 32000);
+    }
+
+    float promedio = CalcularPromedio(A);
+    cout << "Promedio de los elementos del vector A: " << promedio << endl;
+
+    vector<int> B = GenerarVectorB(A, promedio);
+    cout << "Vector B (elementos mayores al promedio): ";
+    MostrarVector(B);
+
+    int cantidadMultiplos = ContarMultiplosDeDosYtres(A);
+    cout << "Cantidad de elementos que son múltiplos de 2 y 3: " << cantidadMultiplos << endl;
+
+    int suma = CalcularSuma(A);
+    cout << "Suma de todos los elementos del vector A: " << suma << endl;
+
+    vector<int> C = GenerarVectorC(A);
+    cout << "Vector C (elementos de A multiplicados por 2): ";
+    MostrarVector(C);
+
+    cout << "Vector A: ";
+    MostrarVector(A);
+
+    return 0;
+}
