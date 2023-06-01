@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+
+using namespace std;
+
+vector<int> GenerarVector(vector<int> V, int n) {
+
+    for (int i = 0; i < n; i++) {
+        V.push_back(rand() % 150); 
+    }
+    return V;
+}
+
+void MostrarVector(vector<int> V) {
+    for (int i = 0; i < V.size(); i++) {
+        cout<<V[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int ContarMultiplosdeDos(vector<int> V) {
+    int contador = 0;
+
+    for (int i = 0; i < V.size(); i++) {
+        if (V[i] % 2 == 0) {
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+int main() {
+    vector<int> A;
+
+    A = GenerarVector(A, 100);
+
+    cout<<"Vector generado:"<<endl;
+    MostrarVector(A);
+
+    int multiplosDeDos = ContarMultiplosdeDos(A);
+    cout<<"Cantidad de múltiplos de dos: "<<multiplosDeDos<<endl;
+
+    return 0;
+}
